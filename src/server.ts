@@ -17,7 +17,7 @@ export = () => {
 		res.render('index');
 	});
 
-	app.use('/public', express.static(path.join(__dirname, './public')));
+	app.use('/public', config.publicConfig(express));
 
 	server.listen(config.port, () => {
 		console.log(`[SERVER] Servidor ouvindo na porta ${config.port}`);

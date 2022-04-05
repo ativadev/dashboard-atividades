@@ -21,6 +21,12 @@ const hbsConfig = (app) => {
 	app.set('views', root);
 };
 
+const publicConfig = (express) => {
+	const path = require('path');
+	const root = path.join(__dirname, '../');
+	return express.static(path.join(root, './public'));
+};
+
 // const sessionKey = process.env.SESSION_KEY || 'key_padrão';
 // const session = sessions({
 // 	secret: sessionKey,
@@ -31,4 +37,4 @@ const hbsConfig = (app) => {
 // 	resave: false,
 // });
 
-export = { port, hbsConfig };
+export = { port, hbsConfig, publicConfig };
