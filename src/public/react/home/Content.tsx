@@ -4,6 +4,8 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 
+import DataTable from './Table.jsx';
+
 const Content = () => {
 	return (
 		<Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
@@ -36,6 +38,7 @@ const Content = () => {
 				<Grid item xs={12}>
 					<Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
 						<h1>{'CONTEÚDO 3'}</h1>
+						<DataTable />
 					</Paper>
 				</Grid>
 			</Grid>
