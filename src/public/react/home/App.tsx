@@ -11,7 +11,9 @@ import Content from './Content.jsx';
 const App = () => {
 	return (
 		<>
-			<Navbar title={'Dashboard'} />
+			<nav className={'navbar'}>
+				<Navbar title={'Dashboard'} />
+			</nav>
 			<Content />
 		</>
 	);
