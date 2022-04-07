@@ -7,6 +7,7 @@
 		mode: 'production',
 		entry: {
 			home: srcDir + '/home/App.jsx',
+			login: srcDir + '/login/App.jsx',
 		},
 		output: {
 			path: path.resolve(__dirname, outDir),

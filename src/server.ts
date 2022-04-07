@@ -18,6 +18,10 @@ export = () => {
 		});
 	});
 
+	app.get('/login', (req, res) => {
+		res.render('pages/login', { title: 'Login' });
+	});
+
 	app.use('/public', config.publicConfig(express));
 
 	server.listen(config.port, () => {
