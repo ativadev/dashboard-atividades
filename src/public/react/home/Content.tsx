@@ -6,6 +6,7 @@ import Paper from '@mui/material/Paper';
 
 import DataTable from './Table.jsx';
 import Title from './Title.jsx';
+import EnhancedTable from './EnhancedTable.jsx';
 
 const Content = () => {
 	return (
@@ -39,7 +40,8 @@ const Content = () => {
 				<Grid item xs={12}>
 					<Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
 						<Title>{'MINHAS SOLICITAÇÕES'}</Title>
-						<DataTable />
+						{/* <DataTable /> */}
+						<EnhancedTable />
 					</Paper>
 				</Grid>
 			</Grid>
