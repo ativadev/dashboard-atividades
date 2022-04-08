@@ -27,6 +27,35 @@ const publicConfig = (express) => {
 	return express.static(path.join(root, './public'));
 };
 
+const sessionConfig = (app) => {
+	const session = require('express-session');
+	app.set('trust proxy', 1);
+	app.use(
+		session({
+			secret: 'segredo secreto',
+			resave: false,
+			saveUninitialized: true,
+			cookie: { secure: true },
+		})
+	);
+};
+
+const authConfig = (app) => {
+	const passport = require('passport');
+	const User = require('../models/user.model');
+	const LocalStrategy = require('passport-local').Strategy;
+
+	passport.use(new LocalStrategy(User.authenticate()));
+
+	app.use(passport.initialize());
+	app.use(passport.session());
+};
+
+const dbConfig = () => {
+	const mongoose = require('mongoose');
+	mongoose.connect('mongodb://localhost:27017/usersDB');
+};
+
 // const sessionKey = process.env.SESSION_KEY || 'key_padrão';
 // const session = sessions({
 // 	secret: sessionKey,
@@ -37,4 +66,4 @@ const publicConfig = (express) => {
 // 	resave: false,
 // });
 
-export = { port, hbsConfig, publicConfig };
+export = { port, hbsConfig, publicConfig, sessionConfig, authConfig, dbConfig };

@@ -39,7 +39,7 @@ const LoginForm = (props) => {
 					direction="column"
 					justifyContent="center"
 					alignItems="center">
-					<Title>LOGIN</Title>
+					<Title>CADASTRO</Title>
 				</Stack>
 				<Stack
 					direction="column"
@@ -57,6 +57,17 @@ const LoginForm = (props) => {
 						onChange={handleUsernameChange}
 						inputProps={{ name: 'username' }}
 					/>
+					<TextField
+						fullWidth
+						required
+						id="email"
+						label="E-mail"
+						variant="outlined"
+						value={email}
+						onChange={handleEmailChange}
+						inputProps={{ name: 'email' }}
+					/>
+
 					<TextField
 						fullWidth
 						required
