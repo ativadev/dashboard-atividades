@@ -24,10 +24,7 @@ const LoginForm = (props) => {
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		console.log('Submetido!');
-		console.table([
-			{ name: 'password', value: password },
-			{ name: 'username', value: username },
-		]);
+		console.table({ username, password });
 	};
 
 	return (

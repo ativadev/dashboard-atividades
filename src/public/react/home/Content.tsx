@@ -4,13 +4,13 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 
-import DataTable from './Table.jsx';
+// import DataTable from './Table.jsx';
 import Title from './Title.jsx';
 import EnhancedTable from './EnhancedTable.jsx';
 
 const Content = () => {
 	return (
-		<Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+		<Container maxWidth="lg" sx={{ pt: 6, mt: 4, mb: 4 }}>
 			<Grid container spacing={2}>
 				{/* Chart */}
 				<Grid item xs={12} md={8} lg={9}>
