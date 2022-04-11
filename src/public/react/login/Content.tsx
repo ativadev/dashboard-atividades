@@ -14,12 +14,12 @@ const Content = () => {
 			direction="row"
 			justifyContent="center"
 			alignItems="center">
-			<Grid item xs={12} md={7} lg={4}>
+			<Grid item xs={10} md={6} lg={4}>
 				<Paper
 					sx={{
-						p: 4,
-						mt: 5,
-						mb: 5,
+						p: 2,
+						mt: 10,
+						mb: 1,
 						mr: 1,
 						ml: 1,
 						display: 'flex',

@@ -9,10 +9,15 @@ import Button from '@mui/material/Button';
 
 import Title from './Title.jsx';
 
-const LoginForm = (props) => {
+const SignupForm = (props) => {
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
 	const [email, setEmail] = useState('');
+	const [name, setName] = useState('');
+
+	const handleNameChange = (event) => {
+		setName(event.target.value);
+	};
 
 	const handleEmailChange = (event) => {
 		setEmail(event.target.value);
@@ -39,11 +44,11 @@ const LoginForm = (props) => {
 					direction="column"
 					justifyContent="center"
 					alignItems="center">
-					<Title>CADASTRO</Title>
+					<Title>Cadastro</Title>
 				</Stack>
 				<Stack
 					direction="column"
-					spacing={2}
+					spacing={2.5}
 					justifyContent="center"
 					alignItems="stretch"
 					sx={{ margin: 2 }}>
@@ -51,6 +56,7 @@ const LoginForm = (props) => {
 						fullWidth
 						required
 						id="username"
+						size="small"
 						label="Usuário"
 						variant="outlined"
 						value={username}
@@ -60,18 +66,31 @@ const LoginForm = (props) => {
 					<TextField
 						fullWidth
 						required
+						id="name"
+						size="small"
+						label="Nome"
+						variant="outlined"
+						value={name}
+						onChange={handleNameChange}
+						inputProps={{ name: 'name' }}
+					/>
+
+					<TextField
+						fullWidth
+						required
 						id="email"
+						size="small"
 						label="E-mail"
 						variant="outlined"
 						value={email}
 						onChange={handleEmailChange}
 						inputProps={{ name: 'email' }}
 					/>
-
 					<TextField
 						fullWidth
 						required
 						id="password"
+						size="small"
 						label="Senha"
 						variant="outlined"
 						type="password"
@@ -83,17 +102,14 @@ const LoginForm = (props) => {
 				<Stack
 					spacing={2}
 					direction="row"
-					justifyContent="space-evenly"
+					justifyContent="center"
 					alignItems="center">
-					<Button type="button" variant="outlined" size="large" color="primary">
-						CADASTRAR
-					</Button>
 					<Button
 						type="submit"
 						variant="contained"
 						size="large"
 						color="secondary">
-						ENTRAR
+						ENVIAR
 					</Button>
 				</Stack>
 			</form>
@@ -101,4 +117,4 @@ const LoginForm = (props) => {
 	);
 };
 
-export default LoginForm;
+export default SignupForm;

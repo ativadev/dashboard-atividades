@@ -39,11 +39,11 @@ const LoginForm = (props) => {
 					direction="column"
 					justifyContent="center"
 					alignItems="center">
-					<Title>LOGIN</Title>
+					<Title>Login</Title>
 				</Stack>
 				<Stack
 					direction="column"
-					spacing={2}
+					spacing={2.5}
 					justifyContent="center"
 					alignItems="stretch"
 					sx={{ margin: 2 }}>
@@ -51,6 +51,7 @@ const LoginForm = (props) => {
 						fullWidth
 						required
 						id="username"
+						size="small"
 						label="Usuário"
 						variant="outlined"
 						value={username}
@@ -61,6 +62,7 @@ const LoginForm = (props) => {
 						fullWidth
 						required
 						id="password"
+						size="small"
 						label="Senha"
 						variant="outlined"
 						type="password"
@@ -74,7 +76,12 @@ const LoginForm = (props) => {
 					direction="row"
 					justifyContent="space-evenly"
 					alignItems="center">
-					<Button type="button" variant="outlined" size="large" color="primary">
+					<Button
+						onClick={() => window.location.assign('/auth/signup')}
+						type="button"
+						variant="outlined"
+						size="large"
+						color="primary">
 						CADASTRAR
 					</Button>
 					<Button

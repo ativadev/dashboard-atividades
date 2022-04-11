@@ -108,8 +108,11 @@ const Navbar = (props: IProps) => {
 			}}
 			open={isMenuOpen}
 			onClose={handleMenuClose}>
-			<MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-			<MenuItem onClick={handleMenuClose}>My account</MenuItem>
+			<MenuItem onClick={handleMenuClose}>Perfil</MenuItem>
+			<MenuItem onClick={handleMenuClose}>Minha conta</MenuItem>
+			<MenuItem onClick={() => window.location.assign('/logout')}>
+				Sair
+			</MenuItem>
 		</Menu>
 	);
 

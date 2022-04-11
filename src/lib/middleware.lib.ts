@@ -8,11 +8,8 @@ const timeLog = async function (
 	const data: Date = new Date();
 	console.log(
 		`[SERVER] ` +
-			`${data.toLocaleString()} ` +
-			`${req.ip} - ` +
-			`${req.method} ` +
-			`${req.url} ` +
-			`${res.statusCode}`
+			`${data.toLocaleString()} ${req.ip} - ` +
+			`${req.method} ${req.url} ${res.statusCode}`
 	);
 	next();
 };

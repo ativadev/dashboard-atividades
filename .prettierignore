@@ -6,6 +6,7 @@
 *.md
 *.css
 Dockerfile
+.prettierrc
 
 package-lock.json
 
