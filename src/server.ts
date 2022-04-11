@@ -13,6 +13,7 @@ export = () => {
 	const authController = require('./controllers/auth.controller');
 
 	config.dbConfig();
+	config.flashConfig(app);
 	config.hbsConfig(app);
 	config.sessionConfig(app);
 	config.authConfig(app);
@@ -23,7 +24,7 @@ export = () => {
 	app.use(middleware.timeLog);
 	app.use('/auth', authController);
 
-	app.get('/', (req: Request, res: Response) => {
+	app.get('/', middleware.checkSession, (req: Request, res: Response) => {
 		res.render('index', {
 			title: 'Dashboard',
 		});

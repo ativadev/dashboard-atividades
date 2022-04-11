@@ -17,22 +17,36 @@ const timeLog = async function (
 	next();
 };
 
-const authLogin = (req, res) => {
-	const passport = require('passport');
-	const jwt = require('jsonwebtoken');
-
-	const secretKey = 'segredo secreto';
-
-	passport.authenticate('local', (err, user, info) => {
-		req.login(user, (err) => {
-			const token = jwt.sign(
-				{ userId: user._id, username: user.username },
-				secretKey,
-				{ expiresIn: '8h' }
-			);
-			res.json({ success: true, message: 'Sucesso!', token: token });
-		});
-	});
+const checkSession = (req, res, next) => {
+	if (req.isAuthenticated()) {
+		return next();
+	}
+	req.flash('error', 'Sua sessão expirou!');
+	res.redirect('/auth/login');
 };
 
-export = { timeLog, authLogin };
+const authLogin = (req, res) => {
+	const passport = require('passport');
+	// const jwt = require('jsonwebtoken');
+
+	// const secretKey = 'segredo secreto';
+
+	passport.authenticate('local', (err, user, info) => {
+		if (err) {
+			req.flash('error', 'Usuário ou senha incorretos!');
+			res.redirect('/auth/login');
+		} else {
+			req.login(user, (err) => {
+				if (err) {
+					req.flash('error', 'Usuário ou senha incorretos!');
+					res.redirect('/auth/login');
+				} else {
+					console.log('Logou!');
+					res.redirect('/');
+				}
+			});
+		}
+	})(req, res);
+};
+
+export = { timeLog, authLogin, checkSession };

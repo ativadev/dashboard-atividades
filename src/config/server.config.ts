@@ -34,8 +34,7 @@ const sessionConfig = (app) => {
 		session({
 			secret: 'segredo secreto',
 			resave: false,
-			saveUninitialized: true,
-			cookie: { secure: true },
+			saveUninitialized: false,
 		})
 	);
 };
@@ -49,6 +48,9 @@ const authConfig = (app) => {
 
 	app.use(passport.initialize());
 	app.use(passport.session());
+
+	passport.serializeUser(User.serializeUser());
+	passport.deserializeUser(User.deserializeUser());
 };
 
 const dbConfig = () => {
@@ -66,4 +68,17 @@ const dbConfig = () => {
 // 	resave: false,
 // });
 
-export = { port, hbsConfig, publicConfig, sessionConfig, authConfig, dbConfig };
+const flashConfig = (app) => {
+	const flash = require('express-flash');
+	app.use(flash());
+};
+
+export = {
+	port,
+	hbsConfig,
+	publicConfig,
+	sessionConfig,
+	authConfig,
+	dbConfig,
+	flashConfig,
+};

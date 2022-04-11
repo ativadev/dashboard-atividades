@@ -1,4 +1,5 @@
 import express, { Request, Response, Router } from 'express';
+const passport = require('passport');
 // const express = require('express');
 const User = require('../models/user.model');
 const middleware = require('../lib/middleware.lib');
@@ -11,15 +12,10 @@ router
 		res.render('pages/login', { title: 'Login' });
 	})
 	.post((req: Request, res: Response) => {
-		const body = req.body;
-		if (!body.username || !body.password) {
-			res.json({ success: false, message: 'Sem usuário ou senha!' });
-		} else {
-			try {
-				middleware.authLogin(req, res);
-			} catch (e) {
-				console.log(e);
-			}
+		try {
+			middleware.authLogin(req, res);
+		} catch (e) {
+			console.log(e);
 		}
 	});
 
