@@ -37,6 +37,12 @@ const UserSchema = new mongoose.Schema({
 	},
 });
 
-UserSchema.plugin(passportLocalMongoose);
+UserSchema.plugin(passportLocalMongoose, {
+	usernameUnique: true,
+	findByUsername: (model, queryParameters) => {
+		queryParameters.active = true;
+		return model.findOne(queryParameters);
+	},
+});
 
 export = mongoose.model('User', UserSchema);
