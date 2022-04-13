@@ -4,7 +4,7 @@
   "description": "Dashboard para os colaboradores conferirem os chamados / atividades que abriram para os departamentos",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "nodemon index.js",
     "build-and-start": "npm run build && npm run start",
     "build": "run-script-os",
     "build:win32": "npm run build:copy && (npm run build:tsc || VER>NUL) && npm run build:webpack",
@@ -13,6 +13,10 @@
     "build:tsc": "npx tsc",
     "build:jsx": "npx babel dist --out-dir dist --ignore **/*.js --presets @babel/preset-react",
     "build:webpack": "webpack build --config ./dist/config/webpack.config.js --stats",
+    "dev": "npm run dev:tsc && npm run dev:copy && npm run dev:webpack && npm run start",
+		"dev:tsc": "start npx tsc --watch",
+		"dev:copy": "start npx cpx \"src/**/*.!(*ts|*tsx)\" dist --verbose --watch",
+		"dev:webpack": "start webpack build --config ./dist/config/webpack.config.js --stats --watch",
     "test": "echo \"Sem testes\""
   },
   "repository": {
@@ -34,6 +38,7 @@
     "@types/react-dom": "^17.0.14",
     "babel-loader": "^8.2.4",
     "cpx": "^1.5.0",
+    "nodemon": "^2.0.15",
     "prettier": "^2.6.2",
     "run-script-os": "^1.1.6",
     "typescript": "^4.6.3",
