@@ -14,6 +14,11 @@ const SignupForm = (props) => {
 	const [password, setPassword] = useState('');
 	const [email, setEmail] = useState('');
 	const [name, setName] = useState('');
+	const [depto, setDepto] = useState('');
+
+	const handleDeptoChange = (event) => {
+		setDepto(event.target.value);
+	};
 
 	const handleNameChange = (event) => {
 		setName(event.target.value);
@@ -39,19 +44,10 @@ const SignupForm = (props) => {
 	return (
 		<Box>
 			<form onSubmit={handleSubmit} id="login-form" method="POST">
-				<Stack
-					spacing={1}
-					direction="column"
-					justifyContent="center"
-					alignItems="center">
+				<Stack spacing={1} direction="column" justifyContent="center" alignItems="center">
 					<Title>Cadastro</Title>
 				</Stack>
-				<Stack
-					direction="column"
-					spacing={2.5}
-					justifyContent="center"
-					alignItems="stretch"
-					sx={{ margin: 2 }}>
+				<Stack direction="column" spacing={2.5} justifyContent="center" alignItems="stretch" sx={{ margin: 2 }}>
 					<TextField
 						fullWidth
 						required
@@ -78,6 +74,18 @@ const SignupForm = (props) => {
 					<TextField
 						fullWidth
 						required
+						id="depto"
+						size="small"
+						label="Depto."
+						variant="outlined"
+						value={depto}
+						onChange={handleDeptoChange}
+						inputProps={{ name: 'depto' }}
+					/>
+
+					<TextField
+						fullWidth
+						required
 						id="email"
 						size="small"
 						label="E-mail"
@@ -99,16 +107,8 @@ const SignupForm = (props) => {
 						inputProps={{ name: 'password' }}
 					/>
 				</Stack>
-				<Stack
-					spacing={2}
-					direction="row"
-					justifyContent="center"
-					alignItems="center">
-					<Button
-						type="submit"
-						variant="contained"
-						size="large"
-						color="secondary">
+				<Stack spacing={2} direction="row" justifyContent="center" alignItems="center">
+					<Button type="submit" variant="contained" size="large" color="secondary">
 						ENVIAR
 					</Button>
 				</Stack>

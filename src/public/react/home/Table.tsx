@@ -16,13 +16,7 @@ interface IData {
 	body: string;
 }
 
-const createData = (
-	timestamp: string,
-	id: string,
-	dep: string,
-	status: string,
-	body: string
-): IData => {
+const createData = (timestamp: string, id: string, dep: string, status: string, body: string): IData => {
 	return { timestamp, id, dep, status, body };
 };
 
@@ -33,14 +27,7 @@ const randomItem = (array: string[]) => {
 
 const mockData = (() => {
 	const data: IData[] = [];
-	const mockDep = [
-		'Tecnologia',
-		'Marketing',
-		'Manutenção',
-		'Qualidade',
-		'Compras',
-		'Faturamento',
-	];
+	const mockDep = ['Tecnologia', 'Marketing', 'Manutenção', 'Qualidade', 'Compras', 'Faturamento'];
 	const mockStatus = ['Aberto', 'Em andamento', 'Fechado', 'Pendente'];
 	const mockBody = [
 		'A certificação de metodologias que nos auxiliam a lidar com a utilização de recursos de hardware dedicados pode nos levar a considerar a reestruturação dos paradigmas de desenvolvimento de software.',
@@ -92,8 +79,7 @@ const Row = (props: { data: IData }) => {
 	const data: IData = props.data;
 	console.log('Gerando LINHA');
 	const content = Object.keys(data).map((d) => {
-		const value =
-			d === 'dep' ? <Chip label={data[d]} variant="outlined" /> : data[d];
+		const value = d === 'dep' ? <Chip label={data[d]} variant="outlined" /> : data[d];
 		return <TableCell>{value}</TableCell>;
 	});
 	return <TableRow>{content}</TableRow>;

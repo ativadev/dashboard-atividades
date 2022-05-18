@@ -34,19 +34,10 @@ const LoginForm = (props) => {
 	return (
 		<Box>
 			<form onSubmit={handleSubmit} id="login-form" method="POST">
-				<Stack
-					spacing={1}
-					direction="column"
-					justifyContent="center"
-					alignItems="center">
+				<Stack spacing={1} direction="column" justifyContent="center" alignItems="center">
 					<Title>Login</Title>
 				</Stack>
-				<Stack
-					direction="column"
-					spacing={2.5}
-					justifyContent="center"
-					alignItems="stretch"
-					sx={{ margin: 2 }}>
+				<Stack direction="column" spacing={2.5} justifyContent="center" alignItems="stretch" sx={{ margin: 2 }}>
 					<TextField
 						fullWidth
 						required
@@ -71,11 +62,7 @@ const LoginForm = (props) => {
 						inputProps={{ name: 'password' }}
 					/>
 				</Stack>
-				<Stack
-					spacing={2}
-					direction="row"
-					justifyContent="space-evenly"
-					alignItems="center">
+				<Stack spacing={2} direction="row" justifyContent="space-evenly" alignItems="center">
 					<Button
 						onClick={() => window.location.assign('/auth/signup')}
 						type="button"
@@ -84,11 +71,7 @@ const LoginForm = (props) => {
 						color="primary">
 						CADASTRAR
 					</Button>
-					<Button
-						type="submit"
-						variant="contained"
-						size="large"
-						color="secondary">
+					<Button type="submit" variant="contained" size="large" color="secondary">
 						ENTRAR
 					</Button>
 				</Stack>

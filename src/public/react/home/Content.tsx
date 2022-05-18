@@ -10,7 +10,7 @@ import EnhancedTable from './EnhancedTable.jsx';
 
 const Content = () => {
 	return (
-		<Container maxWidth="lg" sx={{ pt: 6, mt: 4, mb: 4 }}>
+		<Container maxWidth="lg" sx={{ pt: 10, mt: 0, mb: 2 }}>
 			<Grid container spacing={2}>
 				{/* Chart */}
 				<Grid item xs={12} md={8} lg={9}>

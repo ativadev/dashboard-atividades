@@ -8,12 +8,7 @@ import SignupForm from './SignupForm.jsx';
 
 const Content = () => {
 	return (
-		<Grid
-			container
-			spacing={0}
-			direction="row"
-			justifyContent="center"
-			alignItems="center">
+		<Grid container spacing={0} direction="row" justifyContent="center" alignItems="center">
 			<Grid item xs={10} md={6} lg={4}>
 				<Paper
 					sx={{

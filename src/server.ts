@@ -11,6 +11,7 @@ export = () => {
 	const server = http.createServer(app);
 
 	const authController = require('./controllers/auth.controller');
+	const apiController = require('./controllers/api.controller');
 
 	config.dbConfig();
 	config.hbsConfig(app);
@@ -23,12 +24,13 @@ export = () => {
 
 	app.use(middleware.timeLog);
 	app.use('/auth', authController);
+	app.use('/api', apiController);
 
 	app.get('/', middleware.checkSession, (req, res) => {
+		console.log(req.session);
 		res.render('index', {
 			title: 'Dashboard',
-			name: req.session.name,
-			username: req.session.username,
+			username: req.session.passport.user,
 		});
 	});
 

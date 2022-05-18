@@ -16,6 +16,10 @@ const UserSchema = new mongoose.Schema({
 		required: true,
 		max: 16,
 	},
+	depto: {
+		type: String,
+		required: true,
+	},
 	role: {
 		type: String,
 		required: true,

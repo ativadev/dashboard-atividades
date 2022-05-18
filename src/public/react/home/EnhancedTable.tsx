@@ -30,13 +30,7 @@ interface IData {
 	body: string;
 }
 
-const createData = (
-	timestamp: string,
-	id: string,
-	dep: string,
-	status: string,
-	body: string
-): IData => {
+const createData = (timestamp: string, id: string, dep: string, status: string, body: string): IData => {
 	return { timestamp, id, dep, status, body };
 };
 
@@ -47,14 +41,7 @@ const randomItem = (array: string[]) => {
 
 const rows = (() => {
 	const data: IData[] = [];
-	const mockDep = [
-		'Tecnologia',
-		'Marketing',
-		'Manutenção',
-		'Qualidade',
-		'Compras',
-		'Faturamento',
-	];
+	const mockDep = ['Tecnologia', 'Marketing', 'Manutenção', 'Qualidade', 'Compras', 'Faturamento'];
 	const mockStatus = ['Aberto', 'Em andamento', 'Fechado', 'Pendente'];
 	const mockBody = [
 		'Impressora explodiu!',
@@ -155,14 +142,7 @@ const headCells = [
 ];
 
 function EnhancedTableHead(props) {
-	const {
-		onSelectAllClick,
-		order,
-		orderBy,
-		numSelected,
-		rowCount,
-		onRequestSort,
-	} = props;
+	const { onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort } = props;
 	const createSortHandler = (property) => (event) => {
 		onRequestSort(event, property);
 	};
@@ -212,27 +192,15 @@ const EnhancedTableToolbar = (props) => {
 				pl: { sm: 2 },
 				pr: { xs: 1, sm: 1 },
 				...(numSelected > 0 && {
-					bgcolor: (theme) =>
-						alpha(
-							theme.palette.primary.main,
-							theme.palette.action.activatedOpacity
-						),
+					bgcolor: (theme) => alpha(theme.palette.primary.main, theme.palette.action.activatedOpacity),
 				}),
 			}}>
 			{numSelected > 0 ? (
-				<Typography
-					sx={{ flex: '1 1 100%' }}
-					color="inherit"
-					variant="subtitle1"
-					component="div">
+				<Typography sx={{ flex: '1 1 100%' }} color="inherit" variant="subtitle1" component="div">
 					{numSelected} selected
 				</Typography>
 			) : (
-				<Typography
-					sx={{ flex: '1 1 100%' }}
-					variant="h6"
-					id="tableTitle"
-					component="div">
+				<Typography sx={{ flex: '1 1 100%' }} variant="h6" id="tableTitle" component="div">
 					Nutrition
 				</Typography>
 			)}
@@ -317,16 +285,12 @@ export default function EnhancedTable() {
 	// const isSelected = (name) => selected.indexOf(name) !== -1;
 
 	// Avoid a layout jump when reaching the last page with empty rows.
-	const emptyRows =
-		page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
+	const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
 
 	return (
 		<Box sx={{ width: '100%' }}>
 			<TableContainer>
-				<Table
-					sx={{ minWidth: 750 }}
-					aria-labelledby="tableTitle"
-					size={'medium'}>
+				<Table sx={{ minWidth: 750 }} aria-labelledby="tableTitle" size={'medium'}>
 					<EnhancedTableHead
 						numSelected={0}
 						order={order}
@@ -344,10 +308,7 @@ export default function EnhancedTable() {
 
 								const cells = Object.keys(row).map((key, i) => {
 									return (
-										<TableCell
-											component={i > 0 ? 'td' : 'th'}
-											id={i > 0 ? null : labelId}
-											scope={i > 0 ? null : 'row'}>
+										<TableCell component={i > 0 ? 'td' : 'th'} id={i > 0 ? null : labelId} scope={i > 0 ? null : 'row'}>
 											{row[key]}
 										</TableCell>
 									);

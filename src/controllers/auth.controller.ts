@@ -37,6 +37,7 @@ router
 			name: body.name,
 			email: body.email,
 			username: body.username,
+			depto: body.depto,
 		});
 		User.register(Users, body.password, (err, user) => {
 			if (err) {

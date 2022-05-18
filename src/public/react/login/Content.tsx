@@ -8,16 +8,14 @@ import LoginForm from './LoginForm.jsx';
 
 const Content = () => {
 	return (
-		<Grid
-			container
-			spacing={0}
-			direction="row"
-			justifyContent="center"
-			alignItems="center">
+		<Grid container spacing={0} direction="row" justifyContent="center" alignItems="center">
 			<Grid item xs={10} md={6} lg={4}>
 				<Paper
 					sx={{
-						p: 2,
+						pr: 2,
+						pl: 2,
+						pt: 4,
+						pb: 4,
 						mt: 10,
 						mb: 1,
 						mr: 1,
